@@ -2,10 +2,27 @@
   appearance: none;
   border: 0;
   display: inline-block;
+  font-family: $FONT_BUTTON;
+  font-weight: $WEIGHT_BOLD;
+  padding: 8px 12px;
   text-align: center;
   text-decoration: none;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
+
+  @include mq($from: medium) {
+    padding: 15px 54.5px;
+  }
+
+  &--primary {
+    background-color: $COLOR_PRIMARY;
+    color: $COLOR_TEXT_PRIMARY;
+  }
+
+  &--secondary {
+    background-color: $COLOR_BACKGROUND_WHITE;
+    color: $COLOR_TEXT_SECONDARY;
+  }
 }
