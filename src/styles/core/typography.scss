@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  color: $COLOR_TEXT_SECONDARY;
   font-family: $FONT_BODY;
   font-size: 1.6rem;
 }
@@ -13,7 +14,79 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $FONT_DISPLAY;
+  color: $COLOR_PRIMARY;
+  font-family: $FONT_HEADING;
+  font-weight: $WEIGHT_BOLD;
+}
+
+h1 {
+  font-size: $FONT_SIZE_H1;
+  line-height: $LINE_HEIGHT_H1;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H1_M;
+    line-height: $LINE_HEIGHT_H1_M;
+  }
+}
+
+h2 {
+  font-size: $FONT_SIZE_H2;
+  line-height: $LINE_HEIGHT_H2;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H2;
+    line-height: $LINE_HEIGHT_H2_M;
+  }
+}
+
+h3 {
+  font-size: $FONT_SIZE_H3;
+  line-height: $LINE_HEIGHT_H3;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H3_M;
+    line-height: $LINE_HEIGHT_H3_M;
+  }
+}
+
+h4 {
+  font-size: $FONT_SIZE_H4;
+  line-height: $LINE_HEIGHT_H4;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H4_M;
+    line-height: $LINE_HEIGHT_H4_M;
+  }
+}
+
+h5 {
+  font-size: $FONT_SIZE_H5;
+  line-height: $LINE_HEIGHT_H5;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H5_M;
+    line-height: $LINE_HEIGHT_H5_M;
+  }
+}
+
+h6 {
+  font-size: $FONT_SIZE_H6;
+  line-height: $LINE_HEIGHT_H6;
+
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_H6_M;
+    line-height: $LINE_HEIGHT_H6_M;
+  }
+}
+
+p {
+  font-size: $FONT_SIZE_P;
+  font-weight: $WEIGHT_LIGHT;
+  line-height: $LINE_HEIGHT_P;
+  @include mq($from: medium) {
+    font-size: $FONT_SIZE_P_M;
+    line-height: $LINE_HEIGHT_P_M;
+  }
 }
 
 body,
