@@ -1,0 +1,24 @@
+<div class="product-card col xs12 s6 m4 l3">
+	{% assign current_variant = product.selected_or_first_available_variant %}
+
+	<div class="product-card__featured-image-container">
+		{% if product.featured_image != blank %}
+			<a class="product-card__link" href="{{ product.url | within: collection }}">
+				{% render 'product-tag-badge', product: product %}
+				{{ product.featured_image | img_url: 'large' | img_tag: product.name, 'product-card__featured-image' }}
+			</a>
+		{% endif %}
+
+		<span
+			class="product-card__add-to-cart button button--secondary"
+			data-variant-id="{{ current_variant.id }}"
+		>
+      {{ 'products.product.add_to_cart' | t }}
+    </span>
+	</div>
+
+	<h5 class="product-card__title">{{ product.title | escape }}</h5>
+	<p class="product-card__description">
+		{% render 'product-price', product: product %}
+	</p>
+</div>
