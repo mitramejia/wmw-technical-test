@@ -6,7 +6,9 @@
  *
  * @namespace featuredCollection
  */
+
 import {register} from '@shopify/theme-sections';
+import {addItem} from '@shopify/theme-cart';
 import Flickity from 'flickity';
 
 /**
@@ -43,6 +45,9 @@ register('featured-collection', {
         x3: 20,
       },
     });
+    this.flickity.on('staticClick', this._handleAddToCart.bind(this));
+  },
+
 
   /**
    * Extracts variant id from the event target's html attribute.
@@ -57,5 +62,27 @@ register('featured-collection', {
     return parseInt(variantIdAttr.value, 0);
   },
 
+
+  /**
+   * Handles static click event to add a product to the cart.
+   *
+   * @param {Event} event - event object
+   *
+   * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/flickity/index.d.ts#L364
+   *
+   */
+  async _handleAddToCart(event) {
+    event.preventDefault();
+    try {
+      // Gather request parameters
+      const quantity = this.quantityToAdd;
+      const id = this._getVariantIdFromHtml(event.target);
+      // Issue request
+      await addItem(id, {quantity});
+      // Notify user
+      window.alert('Product Added to cart');
+    } catch (error) {
+      window.alert(`Error adding product to cart: ${error.message}`);
+    }
   },
 });

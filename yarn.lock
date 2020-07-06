@@ -328,10 +328,10 @@
   resolved "https://registry.yarnpkg.com/@shopify/theme-a11y/-/theme-a11y-3.0.0.tgz#4e3361c6c011cb8ce825d4ad164e5e066f73e6d3"
   integrity sha512-ncqgPLut5GCuVCXu17lXogglz7n6EBg6L7oa2MTF2IcVsHq/HL+Krdnr25EdOPxDQjwPRyEwyKJCzSs5WceVjA==
 
-"@shopify/theme-cart@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@shopify/theme-cart/-/theme-cart-3.0.0.tgz#04c576ce560ca9215911691a6ba8306c6aa3a329"
-  integrity sha512-QsjdEpOJU2ebngqCNqBa1EIy+zDpoBUEs+x70GEBlOLqOJVBs7+9V3TfSQyqSpuA4VqeiochL5Tj1ULx0LLZsQ==
+"@shopify/theme-cart@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-cart/-/theme-cart-4.0.0.tgz#54d6c7121fed46c6affc04ad2e9a2a92155b3058"
+  integrity sha512-hFVdhNXkgNpNlCWHwTAVSCCShR/6LRlxYjI12dixAHOQAdGSDF7rkGZelz3n6EHmaZTSZga/3SDysrKSKq9ccA==
 
 "@shopify/theme-currency@3.0.0":
   version "3.0.0"
@@ -367,6 +367,11 @@
     bin-wrapper "3.0.2"
     minimist "1.2.0"
     simple-spinner "0.0.5"
+
+"@types/flickity@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@types/flickity/-/flickity-2.2.3.tgz#0302b394595de414ed0fe9d1487e9382a3c186e0"
+  integrity sha512-3RmLKEQ0bRIlza0Rnd2ZGB/ocNX0nx6U2m9kpDqSH9VDzgV6d4oif5mHi6a/JMI3COMtcvgPF/kH/GmG7lNbXg==
 
 "@we-make-websites/slate-tools@1.0.0-beta.28":
   version "1.0.0-beta.28"

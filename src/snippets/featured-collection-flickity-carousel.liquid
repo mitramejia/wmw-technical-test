@@ -1,0 +1,9 @@
+<div class="flickity__container">
+	<div class="row">
+		<div class="featured-collection__flickity-root">
+			{% for product in collection.products limit: 8 %}
+				{% render 'product-card' product: product %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
