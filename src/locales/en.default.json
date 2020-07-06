@@ -117,7 +117,8 @@
   "collections": {
     "general": {
       "no_matches": "Sorry, there are no products in this collection",
-      "link_title": "Browse our {{ title }} collection"
+      "link_title": "Browse our {{ title }} collection",
+      "view_collection": "View Collection"
     }
   },
   "contact": {
@@ -279,7 +280,10 @@
       "on_sale_from_html": "On Sale from {{ price }}",
       "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
-      "add_to_cart": "Add to Cart"
+      "add_to_cart": "Add to Cart",
+      "tags": {
+        "badge_sale": "Sale"
+      }
     }
   },
   "gift_cards": {

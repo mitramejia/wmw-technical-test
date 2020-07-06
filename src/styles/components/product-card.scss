@@ -5,23 +5,67 @@
  *
  */
 .product-card {
-  $parent: &;
-  color: $COLOR_TEXT_PRIMARY;
   display: block;
   position: relative;
   text-decoration: none;
   width: 100%;
 
-  &__add-to-cart {
-    background-color: $COLOR_SUPPORT_ERROR;
-    color: $COLOR_TEXT_INVERSE;
-    padding: $SPACING_S $SPACING_XL;
+  &__featured-image-container {
+    position: relative;
+  }
+
+  &__featured-image {
+    width: 100%;
+  }
+
+  &__link {
     text-decoration: none;
   }
 
-  @include mq($from: small) {
-    &__add-to-cart {
-      background-color: $COLOR_PRIMARY;
+  &__title {
+    margin-bottom: $SPACING_M;
+    margin-top: $SPACING_ML;
+  }
+
+  &__price {
+    color: $COLOR_TEXT_SECONDARY;
+  }
+
+  &__description {
+    margin-top: 0;
+  }
+
+  &__badge {
+    background: $COLOR_PRIMARY;
+    color: $COLOR_TEXT_PRIMARY;
+    font-size: $FONT_SIZE_P;
+    font-weight: $WEIGHT_BOLD;
+    margin: $SPACING_M;
+    padding: $SPACING_XS $SPACING_M;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+  }
+
+  &__add-to-cart {
+    bottom: 5%;
+    cursor: pointer;
+    display: none;
+    left: 50%;
+    position: absolute;
+    text-decoration: none;
+    transform: translate(-50%, -5%);
+    width: 84%;
+  }
+
+  @media (hover: hover) {
+    &__link:hover + &__add-to-cart {
+      display: block;
+    }
+
+    &__add-to-cart:hover {
+      display: block;
     }
   }
 }

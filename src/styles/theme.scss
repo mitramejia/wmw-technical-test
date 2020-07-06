@@ -40,6 +40,7 @@
 @import './components/placeholders';
 @import './components/product-card';
 @import './components/responsive-images';
+@import './components/flickity';
 
 /**
  * Sections.
@@ -52,3 +53,9 @@
  */
 @import './templates/gift_card';
 @import './templates/product';
+
+/**
+ * Flickity Carousel.
+ */
+@import '../../node_modules/flickity/dist/flickity.min';
+@import './components/flickity';
