@@ -18,10 +18,9 @@ import Flickity from 'flickity';
  * @param {string} container - selector for the section container DOM element
  */
 register('featured-collection', {
-  flickity: null,
-  flickityRootSelector: '.featured-collection__flickity-root',
-  variantIdAttr: 'data-variant-id',
-  quantityToAdd: 1,
+  _flickity: null,
+  _notyf: new Notyf({position: {x: 'right', y: 'top'}}),
+  _flickityRootSelector: '.featured-collection__flickity-root',
 
   onLoad() {
     this.initFlickity();
@@ -80,9 +79,9 @@ register('featured-collection', {
       // Issue request
       await addItem(id, {quantity});
       // Notify user
-      window.alert('Product Added to cart');
+      this._notyf.success('Product Added to cart');
     } catch (error) {
-      window.alert(`Error adding product to cart: ${error.message}`);
+      this._notyf.error(`Error adding product to cart: ${error.message}`);
     }
   },
 });
