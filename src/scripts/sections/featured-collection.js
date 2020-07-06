@@ -68,7 +68,7 @@ register('featured-collection', {
       // Issue request
       await cart.addItem(variantId, {quantity: 1});
       // Notify user
-      this._notyf.success('Product Added to cart');
+      this._notyf.success('Product added to cart');
     } catch (error) {
       this._notyf.error(`Error adding product to cart: ${error.message}`);
     }
