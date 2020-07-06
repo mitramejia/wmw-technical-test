@@ -1,0 +1,49 @@
+/**
+ * Components: Flickity
+ * -----------------------------------------------------------------------------
+ * Style overrides for the flickity carousel package.
+ * https://flickity.metafizzy.co/
+ */
+
+.flickity-page-dots {
+  bottom: 0;
+  padding: $SPACING_L 0;
+  position: relative;
+
+  .dot {
+    height: 8px;
+    width: 8px;
+  }
+}
+
+.flickity-button {
+  background: none;
+
+  &:hover {
+    background: none;
+  }
+}
+
+.flickity-prev-next-button {
+  display: none;
+  top: 35%;
+
+  &.previous {
+    left: $SPACING_4XL * -1;
+  }
+
+  &.next {
+    right: $SPACING_4XL * -1;
+  }
+}
+
+@include mq($from: large) {
+  .flickity__container {
+    margin-left: $LAYOUT_M;
+    margin-right: $LAYOUT_M;
+  }
+
+  .flickity-prev-next-button {
+    display: block;
+  }
+}
