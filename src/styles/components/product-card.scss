@@ -18,6 +18,10 @@
     width: 100%;
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__title {
     margin-bottom: $SPACING_M;
     margin-top: $SPACING_ML;
@@ -55,7 +59,7 @@
     width: 84%;
   }
 
-  @include mq($from: 'large') {
+  @media (hover: hover) {
     &__link:hover + &__add-to-cart {
       display: block;
     }

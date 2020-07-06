@@ -8,8 +8,10 @@
  */
 
 import {register} from '@shopify/theme-sections';
-import {addItem} from '@shopify/theme-cart';
+import * as cart from '@shopify/theme-cart';
 import Flickity from 'flickity';
+import {Notyf} from 'notyf';
+import 'notyf/notyf.min.css';
 
 /**
  * Featured collection constructor
@@ -26,14 +28,15 @@ register('featured-collection', {
     this.initFlickity();
   },
 
+  // Destroy flickity instance if this section its unloaded
   onUnload() {
-    this.flickity.destroy();
+    this._flickity.destroy();
   },
 
   initFlickity() {
-    const root = document.querySelector(this.flickityRootSelector);
+    const root = document.querySelector(this._flickityRootSelector);
 
-    this.flickity = new Flickity(root, {
+    this._flickity = new Flickity(root, {
       groupCells: true,
       cellAlign: 'left',
       contain: true,
@@ -44,40 +47,26 @@ register('featured-collection', {
         x3: 20,
       },
     });
-    this.flickity.on('staticClick', this._handleAddToCart.bind(this));
+    this._flickity.on('staticClick', this._handleAddToCart.bind(this));
   },
-
-
-  /**
-   * Extracts variant id from the event target's html attribute.
-   *
-   * @param {EventTarget} target - event target object
-   * @returns {number} - id - product variant id
-   *
-   */
-  _getVariantIdFromHtml(target) {
-    const variantIdAttr = target.attributes[this.variantIdAttr];
-    if (!variantIdAttr) { throw new Error(`Target requires a ${this.variantIdAttr} html attribute`); }
-    return parseInt(variantIdAttr.value, 0);
-  },
-
 
   /**
    * Handles static click event to add a product to the cart.
    *
-   * @param {Event} event - event object
+   * @param {Event} evt - event object
    *
    * https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/flickity/index.d.ts#L364
    *
    */
-  async _handleAddToCart(event) {
-    event.preventDefault();
+  async _handleAddToCart({target}) {
     try {
       // Gather request parameters
-      const quantity = this.quantityToAdd;
-      const id = this._getVariantIdFromHtml(event.target);
+      const variantIdAttr = target.attributes['data-variant-id'];
+      if (!variantIdAttr) { return; }
+      const variantId = parseInt(variantIdAttr.value, 0);
+
       // Issue request
-      await addItem(id, {quantity});
+      await cart.addItem(variantId, {quantity: 1});
       // Notify user
       this._notyf.success('Product Added to cart');
     } catch (error) {

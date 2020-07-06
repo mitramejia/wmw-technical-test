@@ -98,6 +98,10 @@ select {
   text-size-adjust: 100%;
 }
 
-a:focus {
+a {
   color: inherit;
+
+  &:focus {
+    color: inherit;
+  }
 }

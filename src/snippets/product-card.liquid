@@ -1,3 +1,14 @@
+{% comment %}
+	------------------------------------------------------------------------------
+	Snippet: Product Card
+		It creates a column with product data
+
+	Usage:
+	In your liquid template file, copy the following line
+	- {% render 'product-card' with product: product %}
+	------------------------------------------------------------------------------
+{% endcomment %}
+
 <div class="product-card col xs12 s6 m4 l3">
 	{% assign current_variant = product.selected_or_first_available_variant %}
 
@@ -17,8 +28,11 @@
     </span>
 	</div>
 
-	<h5 class="product-card__title">{{ product.title | escape }}</h5>
-	<p class="product-card__description">
-		{% render 'product-price', product: product %}
-	</p>
+		<a class="product-card__link" href="{{ product.url | within: collection }}">
+			<h5 class="product-card__title">{{ product.title | escape }}</h5>
+
+			<p class="product-card__description">
+				{% render 'product-price', with product: product %}
+			</p>
+		</a>
 </div>

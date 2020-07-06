@@ -1,7 +1,18 @@
+{% comment %}
+	------------------------------------------------------------------------------
+	Snippet: Product Tag Badge
+	It creates a small badge if the product contains a 'badge: sales' tag
+
+	Usage:
+	In your liquid template file, copy the following line
+	- {% render 'product-tag-badge' with product: product %}
+	------------------------------------------------------------------------------
+{% endcomment %}
+
 {% for tag in product.tags %}
-    {% if tag contains "badge: sale" %}
-        <div class="product-card__badge">
-            {{ 'products.product.tags.badge_sale' | t }}
-        </div>
-    {% endif %}
+	{% if tag contains "badge: sale" %}
+		<div class="product-card__badge">
+			{{ 'products.product.tags.badge_sale' | t }}
+		</div>
+	{% endif %}
 {% endfor %}
