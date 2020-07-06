@@ -3,6 +3,7 @@
   border: 0;
   display: inline-block;
   font-family: $FONT_BUTTON;
+  font-size: $FONT_SIZE_P;
   font-weight: $WEIGHT_BOLD;
   padding: $SPACING_S $SPACING_ML;
   text-align: center;
@@ -23,6 +24,7 @@
   }
 
   @include mq($from: medium) {
+    font-size: $FONT_SIZE_P_M;
     padding: $SPACING_L $SPACING_3XL;
   }
 }

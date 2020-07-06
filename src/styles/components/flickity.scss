@@ -7,7 +7,7 @@
 
 .flickity-page-dots {
   bottom: 0;
-  padding: $SPACING_L 0;
+  padding: 0 0 $SPACING_L 0;
   position: relative;
 
   .dot {
@@ -27,13 +27,22 @@
 .flickity-prev-next-button {
   display: none;
   top: 35%;
+  transition: all 200ms ease-in-out;
 
   &.previous {
     left: $SPACING_4XL * -1;
+
+    &:hover {
+      left: $SPACING_4XL * -1.075;
+    }
   }
 
   &.next {
     right: $SPACING_4XL * -1;
+
+    &:hover {
+      right: $SPACING_4XL * -1.075;
+    }
   }
 }
 
@@ -43,7 +52,16 @@
     margin-right: $LAYOUT_M;
   }
 
+  .flickity-page-dots {
+    padding: $SPACING_L 0;
+  }
+
   .flickity-prev-next-button {
     display: block;
   }
 }
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: pointer;
+}
+
