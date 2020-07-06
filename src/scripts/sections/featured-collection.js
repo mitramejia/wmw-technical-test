@@ -20,8 +20,8 @@ register('featured-collection', {
     this.publicMethod();
   },
 
-  publicMethod() {
-    window.console.log('Initialising featured collection section');
+  onUnload() {
+    this.flickity.destroy();
   },
   initCarousel() {
     const elem = document.querySelector('.main-carousel');
