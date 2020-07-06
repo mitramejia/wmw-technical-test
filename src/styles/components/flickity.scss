@@ -27,7 +27,7 @@
 .flickity-prev-next-button {
   display: none;
   top: 35%;
-  transition: all 200ms ease-in-out;
+  transition: $TRANSITION_DEFAULT;
 
   &.previous {
     left: $SPACING_4XL * -1;
