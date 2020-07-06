@@ -16,18 +16,23 @@ import Flickity from 'flickity';
  * @param {string} container - selector for the section container DOM element
  */
 register('featured-collection', {
-  init() {
-    this.publicMethod();
+  flickity: null,
+  flickityRootSelector: '.featured-collection__flickity-root',
+  variantIdAttr: 'data-variant-id',
+  quantityToAdd: 1,
+
+  onLoad() {
+    this.initFlickity();
   },
 
   onUnload() {
     this.flickity.destroy();
   },
-  initCarousel() {
-    const elem = document.querySelector('.main-carousel');
-    new Flickity(elem, {
-      // options
 
+  initFlickity() {
+    const root = document.querySelector(this.flickityRootSelector);
+
+    this.flickity = new Flickity(root, {
       groupCells: true,
       cellAlign: 'left',
       contain: true,
@@ -39,6 +44,18 @@ register('featured-collection', {
       },
     });
 
+  /**
+   * Extracts variant id from the event target's html attribute.
+   *
+   * @param {EventTarget} target - event target object
+   * @returns {number} - id - product variant id
+   *
+   */
+  _getVariantIdFromHtml(target) {
+    const variantIdAttr = target.attributes[this.variantIdAttr];
+    if (!variantIdAttr) { throw new Error(`Target requires a ${this.variantIdAttr} html attribute`); }
+    return parseInt(variantIdAttr.value, 0);
+  },
 
   },
 });
