@@ -4,17 +4,13 @@
   display: inline-block;
   font-family: $FONT_BUTTON;
   font-weight: $WEIGHT_BOLD;
-  padding: 8px 12px;
+  padding: $SPACING_S $SPACING_ML;
   text-align: center;
   text-decoration: none;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
-
-  @include mq($from: medium) {
-    padding: 15px 54.5px;
-  }
 
   &--primary {
     background-color: $COLOR_PRIMARY;
@@ -23,6 +19,10 @@
 
   &--secondary {
     background-color: $COLOR_BACKGROUND_WHITE;
-    color: $COLOR_TEXT_SECONDARY;
+    color: $COLOR_PRIMARY;
+  }
+
+  @include mq($from: medium) {
+    padding: $SPACING_L $SPACING_3XL;
   }
 }
