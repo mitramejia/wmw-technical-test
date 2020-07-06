@@ -51,21 +51,25 @@
   &__add-to-cart {
     bottom: 5%;
     cursor: pointer;
-    display: none;
     left: 50%;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
     text-decoration: none;
     transform: translate(-50%, -5%);
+    transition: $TRANSITION_DEFAULT;
     width: 84%;
   }
 
   @media (hover: hover) {
     &__link:hover + &__add-to-cart {
-      display: block;
+      opacity: 1;
+      pointer-events: all;
     }
 
     &__add-to-cart:hover {
-      display: block;
+      opacity: 1;
+      pointer-events: all;
     }
   }
 }
